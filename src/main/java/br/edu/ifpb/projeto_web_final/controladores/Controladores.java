@@ -1,4 +1,4 @@
-package br.edu.ifpb.projeto_web_final;
+package br.edu.ifpb.projeto_web_final.controladores;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,20 +16,6 @@ public class Controladores {
         return "login_form";
     }
 
-    @RequestMapping("registrar")
-    public String registrar(){
-        return "registrar_form";
-    }
-
-    @RequestMapping("cadastrado")
-    public String cadastrado(){
-        return "list_serie";
-    }
-
-    @RequestMapping("serie")
-    public String serie(){
-        return "add_serie_form";
-    }
 
     @RequestMapping("temporada")
     public String temporada(){

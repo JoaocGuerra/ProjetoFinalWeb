@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Adicionar Temporada</title>
     </head>
     <body>
         Adicionar Série
-        <form>
+        <form  th:action="@{/serie_added}"
+               method="post">
             <!--        id automatico-->
-            Nome <input type="text"> Número de temporadas <input type="number">
+            Nome <input type="text" value="" name="nome"> Número de temporadas <input type="number" value="" name="n_temporadas">
 
-            <button >Adicionar</button>
+            <button type="submit">Adicionar</button>
         </form>
     </body>
 </html>

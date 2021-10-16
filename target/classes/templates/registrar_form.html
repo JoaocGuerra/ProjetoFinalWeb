@@ -6,28 +6,24 @@
   </head>
   <body>
 
-    <form th:action="@{/cadastrado}" class="center">
-
+    <form th:action="@{/registrando}" class="center"
+          method="post">
         <div>
             Registro de usuário
         </div>
         <br>
-
         <div>
-            Nome <input type="text"/>
+            Nome <input type="text" value="" name="nome"/>
         </div>
         <br>
-
         <div>
-            E-mail <input type="email" />
+            E-mail <input type="email" value="" name="email" />
         </div>
         <br>
-
         <div>
-            Senha <input type="password"/>
+            Senha <input type="password" value="" name="senha"/>
         </div>
         <br>
-
         <button type="submit">Registrar</button>
     </form>
   </body>
