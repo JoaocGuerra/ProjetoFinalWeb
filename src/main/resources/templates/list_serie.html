@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Séries</title>
     </head>
     <body>
         Lista de Séries
+
+        <div th:each="serie : ${series}">
+            <div class="row">
+                 <p><span th:text="${serie.id}"></span></p>
+                <p><span th:text="${serie.nome}"></span></p>
+                 <p><span th:text="${serie.n_temporadas}"> </span></p>
+            </div>
+
+        </div>
     </body>
 </html>

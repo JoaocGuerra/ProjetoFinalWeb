@@ -1,7 +1,7 @@
 package br.edu.ifpb.projeto_web_final.controladores;
 
 import br.edu.ifpb.projeto_web_final.interfaces.UsuarioInterface;
-import br.edu.ifpb.projeto_web_final.objetos.Usuario;
+import br.edu.ifpb.projeto_web_final.entidades.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

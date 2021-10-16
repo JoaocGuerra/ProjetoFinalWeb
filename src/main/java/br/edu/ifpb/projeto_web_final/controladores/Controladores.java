@@ -17,14 +17,5 @@ public class Controladores {
     }
 
 
-    @RequestMapping("temporada")
-    public String temporada(){
-        return "add_temporada_form";
-    }
-
-    @RequestMapping("episodio")
-    public String episodio(){
-        return "add_episodio_form";
-    }
 
 }

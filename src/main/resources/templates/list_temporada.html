@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Temporadas</title>
     </head>
     <body>
         Listar Temporadas
+
+        <div th:each="temporada : ${temporadas}">
+            <div class="row">
+                <p><span th:text="${temporada.numero}"></span></p>
+                <p><span th:text="${temporada.id}"> </span></p>
+            </div>
+
+        </div>
     </body>
 </html>

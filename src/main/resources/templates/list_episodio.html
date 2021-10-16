@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
   <head>
       <meta charset="UTF-8">
       <title>Episódios</title>
   </head>
   <body>
-      Listar Episódios
+        Listar Episódios
+        <div th:each="episodio : ${episodios}">
+            <div class="row">
+                <p><span th:text="${episodio.numero}"></span></p>
+                <p><span th:text="${episodio.id}"> </span></p>
+            </div>
+
+        </div>
   </body>
 </html>

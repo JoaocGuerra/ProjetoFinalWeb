@@ -1,4 +1,4 @@
-package br.edu.ifpb.projeto_web_final.objetos;
+package br.edu.ifpb.projeto_web_final.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

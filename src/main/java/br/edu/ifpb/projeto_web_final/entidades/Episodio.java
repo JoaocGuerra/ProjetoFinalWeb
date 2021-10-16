@@ -1,4 +1,4 @@
-package br.edu.ifpb.projeto_web_final.objetos;
+package br.edu.ifpb.projeto_web_final.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,23 +7,15 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Serie implements Serializable {
+public class Episodio implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nome;
-    private int n_temporadas;
 
-    public int getN_temporadas() {
-        return n_temporadas;
-    }
-
-    public void setN_temporadas(int n_temporadas) {
-        this.n_temporadas = n_temporadas;
-    }
+    private int numero;
 
     public Long getId() {
         return id;
@@ -33,11 +25,11 @@ public class Serie implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

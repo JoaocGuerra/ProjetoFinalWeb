@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Adicionar Episódio</title>
     </head>
     <body>
         Adicionar Episodio
-        <form>
+        <form th:action="@{/episodio_added}" method="post">
             <!--        id automatico-->
-            Numero <input type="number">
-            <button >Adicionar</button>
+            Numero <input type="number" value="" name="numero">
+            <button type="submit" >Adicionar</button>
         </form>
 
     </body>
