@@ -3,17 +3,30 @@
     <head>
         <meta charset="UTF-8">
         <title>Séries</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     </head>
     <body>
-        Lista de Séries
+    <h1> Lista de Séries</h1>
+       <table>
+           <thead>
+               <th>Id</th>
+               <th>Nome</th>
+               <th>Número de Temporadas</th>
+           </thead>
+           <tbody th:each="serie : ${series}">
+               <td><span th:text="${serie.id}"></span></td>
+               <td><span th:text="${serie.nome}"></span></td>
+               <td><span th:text="${serie.n_temporadas}"> </span></td>
+           </tbody>
+       </table>
 
-        <div th:each="serie : ${series}">
-            <div class="row">
-                 <p><span th:text="${serie.id}"></span></p>
-                <p><span th:text="${serie.nome}"></span></p>
-                 <p><span th:text="${serie.n_temporadas}"> </span></p>
-            </div>
 
-        </div>
     </body>
 </html>
