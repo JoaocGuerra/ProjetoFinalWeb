@@ -10,10 +10,21 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link rel="stylesheet" href="style/stylecss"/>
   </head>
-  <body>
-        <div class="container" th:each="temporada : ${temporada}">
-            <h1>Lista de Episódios da Temporada <span th:text="${temporada.numero}"></span></h1>
+  <body th:each="temporada : ${temporada}">
+      <header>
+          <nav>
+              <div class="nav-wrapper">
+                  <a href="#" class="brand-logo center">Lista de Episódios da Temporada <span th:text="${temporada.numero}"></span></a>
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                      <!--                        <li><a href="sass.html">Sass</a></li>-->
+                  </ul>
+              </div>
+          </nav>
+      </header>
+        <div class="container">
             <form method="post">
                 Número do Episódio<input type="numbre" value="" name="numero">
                 <button type="submit" class="waves-effect waves-light btn">Adicionar</button>

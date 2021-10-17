@@ -1,6 +1,8 @@
 package br.edu.ifpb.projeto_web_final.entidades;
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -13,13 +15,14 @@ public class Temporada implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private int numero;
     private int n_episodios;
 
     @ManyToOne
     private Serie serie;
 
-    @OneToMany
+    @OneToMany(mappedBy = "temporada", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Episodio> episodios;
 
     public List<Episodio> getEpisodios() {

@@ -29,7 +29,7 @@ public class TemporadaControl {
     @RequestMapping(value = "temporada_added", method = RequestMethod.POST)
     public String temporada(Temporada temporada){
         ti.save(temporada);
-        return "redirect:/add_temporada";
+        return "redirect:/list_temporadas";
     }
 
     @RequestMapping("/list_temporadas")

@@ -29,7 +29,7 @@ public class SerieControl {
     @RequestMapping(value = "serie_added", method = RequestMethod.POST)
     public String serie(Serie serie){
        si.save(serie);
-        return "redirect:/add_serie";
+        return "redirect:/list_serie";
     }
 
     @RequestMapping("/list_serie")

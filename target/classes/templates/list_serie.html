@@ -11,10 +11,26 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <link rel="stylesheet" href="style/stylecss"/>
     </head>
     <body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Lista de Séries</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/add_serie" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Série</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-        <h1> Lista de Séries</h1>
+
+<!--        <form method="post">-->
+<!--            Nome<input type="text" value="" name="nome">-->
+<!--            Númerod de Temporadas<input type="number" value="" name="n_temporadas">-->
+<!--            <button type="submit" class="waves-effect waves-light btn">Adicionar</button>-->
+<!--        </form>-->
         <table>
             <thead>
             <th>Nome</th>

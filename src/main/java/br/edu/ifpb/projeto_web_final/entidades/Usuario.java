@@ -1,10 +1,8 @@
 package br.edu.ifpb.projeto_web_final.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -19,6 +17,17 @@ public class Usuario implements Serializable {
     private String email;
     private String senha;
     private String nome;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Serie> series;
+
+    public List<Serie> getSeries() {
+        return series;
+    }
+
+    public void setSeries(List<Serie> series) {
+        this.series = series;
+    }
 
     public Long getId() {
         return id;

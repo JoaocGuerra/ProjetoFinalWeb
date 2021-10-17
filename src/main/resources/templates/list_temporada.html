@@ -10,10 +10,21 @@
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="stylesheet" href="style/stylecss"/>
     </head>
-    <body>
-    <div class="container" th:each="serie: ${serie}">
-        <h1>Lista de Temporadas de <span th:text="${serie.nome}"></span></h1>
+    <body th:each="serie: ${serie}">
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Lista de Temporadas de <span th:text="${serie.nome}"></span></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+<!--                    <li><a href="/add_temporada" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Temporada</a></li>-->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
         <form method="post">
             Número da Temporada<input type="number" value="" name="numero">
             Númerod de Episódios<input type="number" value="" name="n_episodios">
@@ -21,11 +32,17 @@
         </form>
 <!--        <h3> <a href="/add_temporada" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Temporada</a></h3>-->
     </div>
-    <div class="container" th:each="temporada : ${temporadas}">
-        <div class="row">
-             <a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}">Temporada <span th:text="${temporada.numero}"></span></a>
-            Número de Episódios<span th:text="${temporada.n_episodios}"></span>
-        </div>
+    <div class="container" >
+        <table>
+            <thead>
+            <th>Número Temporada</th>
+            <th>Número de Episódios</th>
+            </thead>
+            <tbody th:each="temporada : ${temporadas}">
+                <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}">Temporada <span th:text="${temporada.numero}"></span></a></td>
+                <td><span th:text="${temporada.n_episodios}"></span></td>
+            </tbody>
+        </table>
     </div>
 
 
