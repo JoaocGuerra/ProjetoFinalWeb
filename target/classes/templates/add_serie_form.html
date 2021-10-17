@@ -3,15 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <title>Adicionar Temporada</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         Adicionar Série
-        <form  th:action="@{/serie_added}"
+        <form class="container"  th:action="@{/serie_added}"
                method="post">
             <!--        id automatico-->
             Nome <input type="text" value="" name="nome"> Número de temporadas <input type="number" value="" name="n_temporadas">
 
-            <button type="submit">Adicionar</button>
+            <button class="waves-effect waves-light btn" type="submit" >Adicionar</button>
         </form>
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://codde.jquery.com/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
 </html>

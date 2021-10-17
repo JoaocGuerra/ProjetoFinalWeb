@@ -3,13 +3,20 @@
   <head>
       <meta charset="UTF-8">
       <title>Registro</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
 
-    <form th:action="@{/registrando}" class="center"
+    <form class="container" th:action="@{/registrando}"
           method="post">
         <div>
-            Registro de usuário
+            <h1>Registro de usuário</h1>
         </div>
         <br>
         <div>
@@ -24,7 +31,11 @@
             Senha <input type="password" value="" name="senha"/>
         </div>
         <br>
-        <button type="submit">Registrar</button>
+        <button class="waves-effect waves-light btn" type="submit">Registrar</button>
     </form>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://codde.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>

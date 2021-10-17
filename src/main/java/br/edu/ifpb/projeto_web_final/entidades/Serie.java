@@ -1,10 +1,8 @@
 package br.edu.ifpb.projeto_web_final.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Serie implements Serializable {
@@ -16,6 +14,9 @@ public class Serie implements Serializable {
     private Long id;
     private String nome;
     private int n_temporadas;
+
+    @OneToMany
+    private List<Temporada> temporadas;
 
     public int getN_temporadas() {
         return n_temporadas;

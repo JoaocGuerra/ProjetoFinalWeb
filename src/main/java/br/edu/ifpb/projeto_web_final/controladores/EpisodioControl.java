@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class Episodio_Control {
+public class EpisodioControl {
 
     @Autowired
     private EpisodioInterface ei;

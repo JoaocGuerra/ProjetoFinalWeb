@@ -1,9 +1,6 @@
 package br.edu.ifpb.projeto_web_final.entidades;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -16,6 +13,17 @@ public class Episodio implements Serializable {
     private Long id;
 
     private int numero;
+
+    @ManyToOne
+    private Temporada temporada;
+
+    public Temporada getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(Temporada temporada) {
+        this.temporada = temporada;
+    }
 
     public Long getId() {
         return id;

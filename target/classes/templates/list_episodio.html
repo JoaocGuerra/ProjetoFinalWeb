@@ -12,19 +12,21 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-        <h1>Listar Episódios</h1>
-        <table>
-            <thead>
-                <th>Id</th>
-                <th>Numero</th>
-            </thead>
-            <tbody th:each="episodio : ${episodios}">
-                <td><span th:text="${episodio.numero}"></span></td>
-                <td><span th:text="${episodio.id}"> </span></td>
-            </tbody>
-        </table>
-
+        <div class="container" th:each="temporada : ${temporada}">
+            <h1>Lista de Episódios da Temporada <span th:text="${temporada.numero}"></span></h1>
+            <form method="post">
+                Número do Episódio<input type="numbre" value="" name="numero">
+                <button type="submit" class="waves-effect waves-light btn">Adicionar</button>
+            </form>
+        </div>
+        <div class="container" th:each="episodio : ${episodios}">
+            <div class="row">
+                Episódio <span th:text="${episodio.numero}"></span>
+            </div>
+        </div>
         <!--JavaScript at end of body for optimized loading-->
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://codde.jquery.com/jquery-2.2.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>
