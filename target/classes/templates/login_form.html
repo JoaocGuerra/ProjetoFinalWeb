@@ -12,21 +12,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <form class="container">
+        <form class="container" th:action="@{/login}" method="post">
             <div>
                 <h1>Entrar</h1>
             </div>
             <br>
             <div>
-                Email <input type="email" />
+                Email <input type="email" value="" name="email"/>
             </div>
             <br>
             <div>
-                Senha <input type="password" />
+                Senha <input type="password" value="" name="senha" />
             </div>
             <br>
 
-            <button><a>Entrar</a></button>
+            <button type="submit"><a>Entrar</a></button>
             <button><a th:href="@{/registrar}">Registrar</a></button>
         </form>
 

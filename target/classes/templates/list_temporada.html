@@ -53,7 +53,7 @@
             </tbody>
         </table>
         <br>
-        <button><a>Voltar</a></button>
+        <button><a th:href="${(#mvc.url('UC#descricaoUsuario').arg(0, serie.getUsuario().getId())).build()}">Voltar</a></button>
     </div>
 
 

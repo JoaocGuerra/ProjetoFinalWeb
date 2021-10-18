@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Usuario</title>
@@ -13,17 +13,37 @@
 
         <link rel="stylesheet" href="style/stylecss"/>
     </head>
-    <body>
+    <body th:each="usuario : ${usuario}">
         <header>
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">Lista de Séries de</a>
+                    <a href="#" class="brand-logo center">HelixFlix Home</span></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a>Sair</a></li>
-                    </ul>
+                        <li><a th:href="${(#mvc.url('UC#descricaoUsuario').arg(0, usuario.id)).build()}">Minhas Séries</a></li>
+                        <li><a th:href="${(#mvc.url('UC#logout').arg(0, usuario.id)).build()}">Sair</a></li>
+                        </ul>
                 </div>
             </nav>
         </header>
+<!--        <br>-->
+<!--        <div class="container">-->
+<!--            <form method="post" class="row">-->
+<!--                Nome<input type="text" value="" name="nome">-->
+<!--                Número de Temporadas<input type="number" value="" name="n_temporadas">-->
+<!--                <button type="submit"><a>Adicionar</a></button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <div class="container">-->
+<!--            <table>-->
+<!--                <thead>-->
+<!--                    <th>Nome da Série</th>-->
+<!--                </thead>-->
+<!--                <tbody th:each="serie : ${series}">-->
+<!--                <td><a th:href="${(#mvc.url('SC#descricaoSerie').arg(0, serie.id)).build()}"><span th:text="${serie.nome}"></span></a></td>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
         <!--JavaScript at end of body for optimized loading-->
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="https://codde.jquery.com/jquery-2.2.1.min.js"></script>
