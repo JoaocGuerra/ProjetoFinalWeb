@@ -40,6 +40,16 @@ public class TemporadaControl {
         return mv;
     }
 
+    @RequestMapping("/deletar_temporada")
+    public String deletarTemporada(Long id){
+        Temporada temporada = ti.findById(id);
+        ti.delete(temporada);
+        Serie serie = temporada.getSerie();
+        long id_serie = serie.getId();
+        String id_serie_s = "" + id_serie;
+        return "redirect:/serie" + id_serie_s;
+    }
+
     @RequestMapping(value = "/temporada{id}", method = RequestMethod.GET)
     public ModelAndView descricaoTemporada(@PathVariable("id") long id){
         Temporada temporada = ti.findById(id);

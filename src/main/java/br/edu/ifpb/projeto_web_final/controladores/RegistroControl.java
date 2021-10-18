@@ -21,7 +21,6 @@ public class RegistroControl {
     @RequestMapping(value = "registrando", method = RequestMethod.POST)
     public String registrar(Usuario usuario){
         ui.save(usuario);
-
-        return "redirect:/registrar";
+        return "login_form";
     }
 }

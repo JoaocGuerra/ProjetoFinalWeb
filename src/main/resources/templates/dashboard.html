@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Usuario</title>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <!--Import materialize.css-->
@@ -10,26 +10,21 @@
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link rel="stylesheet" href="style/stylecss"/>
     </head>
     <body>
-        <form class="container">
-            <div>
-                <h1>Entrar</h1>
-            </div>
-            <br>
-            <div>
-                Email <input type="email" />
-            </div>
-            <br>
-            <div>
-                Senha <input type="password" />
-            </div>
-            <br>
-
-            <button><a>Entrar</a></button>
-            <button><a th:href="@{/registrar}">Registrar</a></button>
-        </form>
-
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Lista de Séries de</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a>Sair</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--JavaScript at end of body for optimized loading-->
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="https://codde.jquery.com/jquery-2.2.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

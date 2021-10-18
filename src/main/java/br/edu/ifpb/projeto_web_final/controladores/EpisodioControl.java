@@ -1,6 +1,7 @@
 package br.edu.ifpb.projeto_web_final.controladores;
 
 import br.edu.ifpb.projeto_web_final.entidades.Episodio;
+import br.edu.ifpb.projeto_web_final.entidades.Temporada;
 import br.edu.ifpb.projeto_web_final.interfaces.EpisodioInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,4 +32,15 @@ public class EpisodioControl {
         mv.addObject("episodios", episodios);
         return mv;
     }
+
+    @RequestMapping("/deletar_episodio")
+    public String deletarEpisodio(Long id){
+        Episodio episodio = ei.findById(id);
+        ei.delete(episodio);
+        Temporada temporada = episodio.getTemporada();
+        long id_temporada = temporada.getId();
+        String id_temporada_s = "" + id_temporada;
+        return "redirect:/temporada" + id_temporada_s;
+    }
+
 }

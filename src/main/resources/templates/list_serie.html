@@ -18,19 +18,17 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">Lista de Séries</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/add_serie" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Série</a></li>
-                </ul>
             </div>
         </nav>
     </header>
+    <br>
     <div class="container">
-
-<!--        <form method="post">-->
-<!--            Nome<input type="text" value="" name="nome">-->
-<!--            Númerod de Temporadas<input type="number" value="" name="n_temporadas">-->
-<!--            <button type="submit" class="waves-effect waves-light btn">Adicionar</button>-->
-<!--        </form>-->
+        <form method="post" th:action="@{/serie_added}" >
+            Nome<input type="text" value="" name="nome">
+            Número de Temporadas<input type="number" value="" name="n_temporadas">
+            <button type="submit"><a>Adicionar</a></button>
+        </form>
+        <br>
         <table>
             <thead>
             <th>Nome</th>
@@ -39,17 +37,16 @@
             </thead>
             <tbody th:each="serie : ${series}">
             <td><a th:href="${(#mvc.url('SC#descricaoSerie').arg(0, serie.id)).build()}"><span th:text="${serie.nome}"></span></a></td>
-            <td><span th:text="${serie.n_temporadas}"> </span></td>
+            <td><span th:text="${serie.getTemporadas().size()}"> </span></td>
             <td>
                 <div class="row">
-                    <button class="waves-effect waves-light red" type="submit" >Editar Serie</button>
-                    <button class="waves-effect waves-light red" type="submit" >Apagar Serie</button>
+                    <button><a>Editar Série</a></button>
+                    <button><a th:href="${(#mvc.url('SC#deletarSerie').arg(0, serie.id)).build()}">Apagar Série</a></button>
                 </div>
             </td>
             </tbody>
         </table>
         <br>
-        <button class="waves-effect waves-light btn" type="submit" >Adicionar Serie</button>
     </div>
 
     <!--JavaScript at end of body for optimized loading-->

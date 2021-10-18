@@ -17,8 +17,18 @@ public class Episodio implements Serializable {
     @ManyToOne
     private Temporada temporada;
 
+    private boolean assistiu = false;
+
     public Temporada getTemporada() {
         return temporada;
+    }
+
+    public boolean isAssistiu() {
+        return assistiu;
+    }
+
+    public void setAssistiu(boolean assistiu) {
+        this.assistiu = assistiu;
     }
 
     public void setTemporada(Temporada temporada) {

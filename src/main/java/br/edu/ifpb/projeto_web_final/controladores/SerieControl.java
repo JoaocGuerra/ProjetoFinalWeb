@@ -40,6 +40,13 @@ public class SerieControl {
         return mv;
     }
 
+    @RequestMapping("/deletar_serie")
+    public String deletarSerie(Long id){
+        Serie serie = si.findById(id);
+        si.delete(serie);
+        return "redirect:/list_serie";
+    }
+
     @RequestMapping(value = "/serie{id}", method = RequestMethod.GET)
     public ModelAndView descricaoSerie(@PathVariable("id") long id){
         Serie serie = si.findById(id);

@@ -24,25 +24,36 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <form method="post">
-            Número da Temporada<input type="number" value="" name="numero">
-            Númerod de Episódios<input type="number" value="" name="n_episodios">
-            <button type="submit" class="waves-effect waves-light btn">Adicionar</button>
+    <br>
+    <div class="container" >
+        <form method="post" class="row">
+                Número da Temporada<input type="number" value="" name="numero">
+                Número de Episódios<input type="number" value="" name="n_episodios">
+                <button type="submit"><a>Adicionar</a></button>
         </form>
 <!--        <h3> <a href="/add_temporada" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Temporada</a></h3>-->
     </div>
+    <br>
     <div class="container" >
         <table>
             <thead>
             <th>Número Temporada</th>
             <th>Número de Episódios</th>
+            <th>Número de Episódios Assistidos</th>
+            <th>Opções</th>
             </thead>
             <tbody th:each="temporada : ${temporadas}">
                 <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}">Temporada <span th:text="${temporada.numero}"></span></a></td>
-                <td><span th:text="${temporada.n_episodios}"></span></td>
+                <td><span th:text="${temporada.getEpisodios().size()}"></span></td>
+                <td>0</td>
+                <td>
+                    <button><a>Editar Temporada</a></button>
+                    <button><a th:href="${(#mvc.url('TC#deletarTemporada').arg(0, temporada.id)).build()}">Apagar Temporada</a></button>
+                </td>
             </tbody>
         </table>
+        <br>
+        <button><a>Voltar</a></button>
     </div>
 
 
