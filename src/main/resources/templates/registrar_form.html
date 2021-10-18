@@ -18,17 +18,23 @@
         <div>
             <h1>Registro de usuário</h1>
         </div>
-        <br>
-        <div>
-            Nome <input type="text" value="" name="nome"/>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="name" type="text" name="nome" >
+                <label for="name">Nome</label>
+            </div>
         </div>
-        <br>
-        <div>
-            E-mail <input type="email" value="" name="email" />
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate" name="email">
+                <label for="email">Email</label>
+            </div>
         </div>
-        <br>
-        <div>
-            Senha <input type="password" value="" name="senha"/>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate" name="senha">
+                <label for="password">Password</label>
+            </div>
         </div>
         <br>
         <button type="submit"><a>Registrar</a></button>

@@ -5,7 +5,9 @@ import br.edu.ifpb.projeto_web_final.entidades.Temporada;
 import br.edu.ifpb.projeto_web_final.interfaces.EpisodioInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,6 +33,22 @@ public class EpisodioControl {
         Iterable<Episodio> episodios = ei.findAll();
         mv.addObject("episodios", episodios);
         return mv;
+    }
+
+    @RequestMapping(value = "edit_episodio{id}", method = RequestMethod.GET)
+    public ModelAndView editarEpisodio(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("edit_episodio_form");
+        Episodio episodio = ei.findById(id);
+        mv.addObject("episodio",episodio);
+        return mv;
+    }
+
+    @RequestMapping(value = "edit_episodio{id}", method = RequestMethod.POST)
+    public String editarEpisodioPost(Episodio episodio){
+        Episodio episodio1 = ei.findById(episodio.getId());
+        episodio1.setNumero(episodio.getNumero());
+        ei.save(episodio1);
+        return "redirect:/edit_episodio{id}";
     }
 
     @RequestMapping("/deletar_episodio")

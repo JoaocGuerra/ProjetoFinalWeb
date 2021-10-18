@@ -24,10 +24,11 @@
               </div>
           </nav>
       </header>
+      <br>
         <div class="container">
             <form method="post">
-                Número do Episódio<input type="numbre" value="" name="numero">
-                <button type="submit" class="waves-effect waves-light btn">Adicionar</button>
+                Número do Episódio<input type="number" value="" name="numero">
+                <button type="submit"><a>Adicionar</a></button>
             </form>
         </div>
         <div class="container" >
@@ -51,12 +52,13 @@
                 </td>
                 <td>
                     <div class="row">
-                        <button type="submit" ><a>Editar Episódio</a></button>
+                        <button type="submit"><a th:href="${(#mvc.url('EC#editarEpisodio').arg(0, episodio.id)).build()}">Editar Episódio</a></button>
                         <button><a th:href="${(#mvc.url('EC#deletarEpisodio').arg(0, episodio.id)).build()}">Apagar Episódio</a></button>
                     </div>
                 </td>
                 </tbody>
             </table>
+            <br>
             <button><a th:href="${(#mvc.url('SC#descricaoSerie').arg(0, temporada.getSerie().getId())).build()}">Voltar</a></button>
         </div>
         <!--JavaScript at end of body for optimized loading-->

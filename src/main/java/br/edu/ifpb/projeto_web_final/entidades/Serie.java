@@ -1,7 +1,5 @@
 package br.edu.ifpb.projeto_web_final.entidades;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -17,6 +15,7 @@ public class Serie implements Serializable {
 
     private String nome;
     private int n_temporadas;
+    private int n_episodios;
 
     @ManyToOne
     private Usuario usuario;
@@ -62,5 +61,13 @@ public class Serie implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getN_episodios() {
+        return n_episodios;
+    }
+
+    public void setN_episodios(int n_episodios) {
+        this.n_episodios = n_episodios;
     }
 }

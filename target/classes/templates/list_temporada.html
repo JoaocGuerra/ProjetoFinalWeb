@@ -43,11 +43,11 @@
             <th>Opções</th>
             </thead>
             <tbody th:each="temporada : ${temporadas}">
-                <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}">Temporada <span th:text="${temporada.numero}"></span></a></td>
+                <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}"><span th:text="${temporada.numero}"></span></a></td>
                 <td><span th:text="${temporada.getEpisodios().size()}"></span></td>
                 <td>0</td>
                 <td>
-                    <button><a>Editar Temporada</a></button>
+                    <button><a th:href="${(#mvc.url('TC#editarTemporada').arg(0, temporada.id)).build()}">Editar Temporada</a></button>
                     <button><a th:href="${(#mvc.url('TC#deletarTemporada').arg(0, temporada.id)).build()}">Apagar Temporada</a></button>
                 </td>
             </tbody>

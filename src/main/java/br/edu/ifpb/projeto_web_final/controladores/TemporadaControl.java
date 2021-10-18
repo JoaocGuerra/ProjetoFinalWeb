@@ -40,6 +40,22 @@ public class TemporadaControl {
         return mv;
     }
 
+    @RequestMapping(value = "edit_temporada{id}", method = RequestMethod.GET)
+    public ModelAndView editarTemporada(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("edit_temporada_form");
+        Temporada temporada = ti.findById(id);
+        mv.addObject("temporada",temporada);
+        return mv;
+    }
+
+    @RequestMapping(value = "edit_temporada{id}", method = RequestMethod.POST)
+    public String editarTemporadaPost(Temporada temporada){
+        Temporada temporada1 = ti.findById(temporada.getId());
+        temporada1.setNumero(temporada.getNumero());
+        ti.save(temporada1);
+        return "redirect:/edit_temporada{id}";
+    }
+
     @RequestMapping("/deletar_temporada")
     public String deletarTemporada(Long id){
         Temporada temporada = ti.findById(id);

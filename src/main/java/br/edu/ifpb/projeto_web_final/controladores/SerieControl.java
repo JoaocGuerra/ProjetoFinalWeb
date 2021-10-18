@@ -1,6 +1,7 @@
 package br.edu.ifpb.projeto_web_final.controladores;
 
 import br.edu.ifpb.projeto_web_final.entidades.Temporada;
+import br.edu.ifpb.projeto_web_final.entidades.Usuario;
 import br.edu.ifpb.projeto_web_final.interfaces.SerieInterface;
 import br.edu.ifpb.projeto_web_final.entidades.Serie;
 import br.edu.ifpb.projeto_web_final.interfaces.TemporadaInterface;
@@ -28,8 +29,24 @@ public class SerieControl {
 
     @RequestMapping(value = "serie_added", method = RequestMethod.POST)
     public String serie(Serie serie){
-       si.save(serie);
+        si.save(serie);
         return "redirect:/list_serie";
+    }
+
+    @RequestMapping(value = "edit_serie{id}", method = RequestMethod.GET)
+    public ModelAndView editarSerie(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("edit_serie_form");
+        Serie serie = si.findById(id);
+        mv.addObject("serie",serie);
+        return mv;
+    }
+
+    @RequestMapping(value = "edit_serie{id}", method = RequestMethod.POST)
+    public String editarSeriePost(Serie serie){
+        Serie serie1 = si.findById(serie.getId());
+        serie1.setNome(serie.getNome());
+        si.save(serie1);
+        return "redirect:/edit_serie{id}";
     }
 
     @RequestMapping("/list_serie")
@@ -44,7 +61,10 @@ public class SerieControl {
     public String deletarSerie(Long id){
         Serie serie = si.findById(id);
         si.delete(serie);
-        return "redirect:/list_serie";
+        Usuario usuario = serie.getUsuario();
+        long id_usuario = usuario.getId();
+        String id_usuario_s = "" + id_usuario;
+        return "redirect:/usuario" + id_usuario_s;
     }
 
     @RequestMapping(value = "/serie{id}", method = RequestMethod.GET)
