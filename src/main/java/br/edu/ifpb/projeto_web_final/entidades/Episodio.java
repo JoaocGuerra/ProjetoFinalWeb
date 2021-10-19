@@ -19,6 +19,9 @@ public class Episodio implements Serializable {
 
     private boolean assistiu = false;
 
+    public Episodio() {
+    }
+
     public Temporada getTemporada() {
         return temporada;
     }

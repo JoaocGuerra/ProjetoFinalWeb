@@ -27,7 +27,7 @@ public class TemporadaControl {
     }
 
     @RequestMapping(value = "temporada_added", method = RequestMethod.POST)
-    public String temporada(Temporada temporada){
+    public String temporada(Serie serie, Temporada temporada){
         ti.save(temporada);
         return "redirect:/list_temporadas";
     }

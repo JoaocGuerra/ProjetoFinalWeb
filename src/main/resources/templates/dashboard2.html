@@ -26,7 +26,7 @@
 </header>
 <br>
 <div class="container">
-    <form method="post" class="row">
+    <form th:action="@{/serie_added}" method="post" class="row" >
         <table>
             <thead>
             <th>Nome da Série</th>
@@ -37,11 +37,11 @@
             <tbody>
             <td><input type="text" value="" name="nome"></td>
             <td><input type="number" value="" name="n_temporadas"></td>
-            <td><input type="number" value="" name="n_temporadas"></td>
+            <td><input type="number" value="" name="n_episodios"></td>
+            <input type="hidden" th:field="*{usuario.id}" id="id" name="id">
             <td> <button type="submit"><a>Adicionar Série</a></button></td>
             </tbody>
         </table>
-
     </form>
 </div>
 <br>

@@ -28,7 +28,7 @@
     <div class="container" >
         <form method="post" class="row">
                 Número da Temporada<input type="number" value="" name="numero">
-                Número de Episódios<input type="number" value="" name="n_episodios">
+                <input type="hidden" value="0" name="n_episodio">
                 <button type="submit"><a>Adicionar</a></button>
         </form>
 <!--        <h3> <a href="/add_temporada" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Adicionar Temporada</a></h3>-->
@@ -37,13 +37,13 @@
     <div class="container" >
         <table>
             <thead>
-            <th>Número Temporada</th>
+            <th>Temporada</th>
             <th>Número de Episódios</th>
             <th>Número de Episódios Assistidos</th>
             <th>Opções</th>
             </thead>
             <tbody th:each="temporada : ${temporadas}">
-                <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}"><span th:text="${temporada.numero}"></span></a></td>
+                <td><a th:href="${(#mvc.url('TC#descricaoTemporada').arg(0, temporada.id)).build()}">Temporada <span th:text="${temporada.numero}"></span></a></td>
                 <td><span th:text="${temporada.getEpisodios().size()}"></span></td>
                 <td>0</td>
                 <td>

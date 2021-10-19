@@ -1,10 +1,13 @@
 package br.edu.ifpb.projeto_web_final.controladores;
 
+import br.edu.ifpb.projeto_web_final.entidades.Episodio;
 import br.edu.ifpb.projeto_web_final.entidades.Temporada;
 import br.edu.ifpb.projeto_web_final.entidades.Usuario;
+import br.edu.ifpb.projeto_web_final.interfaces.EpisodioInterface;
 import br.edu.ifpb.projeto_web_final.interfaces.SerieInterface;
 import br.edu.ifpb.projeto_web_final.entidades.Serie;
 import br.edu.ifpb.projeto_web_final.interfaces.TemporadaInterface;
+import br.edu.ifpb.projeto_web_final.interfaces.UsuarioInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class SerieControl {
 
     @Autowired
+    private UsuarioInterface ui;
+
+    @Autowired
     private SerieInterface si;
 
     @Autowired
     private TemporadaInterface ti;
+
+    @Autowired
+    private EpisodioInterface ei;
 
     @RequestMapping(value = "add_serie", method = RequestMethod.GET)
     public String serie(){
@@ -28,8 +37,33 @@ public class SerieControl {
     }
 
     @RequestMapping(value = "serie_added", method = RequestMethod.POST)
-    public String serie(Serie serie){
-        si.save(serie);
+    public String serie(Usuario usuario, Serie serie){
+        serie.setUsuario(usuario);
+        Serie serie1 = new Serie();
+        serie1.setUsuario(usuario);
+        serie1.setNome(serie.getNome());
+        serie1.setN_temporadas(serie.getN_temporadas());
+        serie1.setN_episodios(serie.getN_episodios());
+        si.save(serie1);
+        Temporada temporada = null;
+        Episodio episodio;
+        int n_episodios;
+        int n_temporadas = serie.getN_temporadas();
+        for (int i = 0; i < n_temporadas; i++){
+            temporada = new Temporada();
+            temporada.setNumero(i+1);
+            temporada.setN_episodios(serie1.getN_episodios());
+            temporada.setSerie(serie1);
+            ti.save(temporada);
+            n_episodios = temporada.getN_episodios();
+            for (int j = 0; j < n_episodios; j++){
+                episodio = new Episodio();
+                episodio.setNumero(j+1);
+                episodio.setAssistiu(false);
+                episodio.setTemporada(temporada);
+                ei.save(episodio);
+            }
+        }
         return "redirect:/list_serie";
     }
 

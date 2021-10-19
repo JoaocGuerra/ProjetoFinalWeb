@@ -23,6 +23,9 @@ public class Serie implements Serializable {
     @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Temporada> temporadas;
 
+    public Serie() {
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }

@@ -25,6 +25,15 @@ public class Temporada implements Serializable {
     @OneToMany(mappedBy = "temporada", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Episodio> episodios;
 
+    public Temporada() {
+    }
+
+    public Temporada(int numero, int n_episodios, Serie serie) {
+        this.numero = numero;
+        this.n_episodios = n_episodios;
+        this.serie = serie;
+    }
+
     public List<Episodio> getEpisodios() {
         return episodios;
     }
