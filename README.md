@@ -10,16 +10,16 @@ João Carlos Guerra de Abreu \
 João Gabriel de Oliveira Ponciano \
 João Messias da Silva Medeiros
 
-**Descrição:** \
+**Descrição:** 
 Fazer uso de qualquer ferramenta JAVA EE para criação de um aplicação FullStack de um sistema de vizualização de séries.
 
-**Back-end:** \
+**Back-end:** 
 * Java
 * Spring Boot
 * JPA / Hibernate
 
-**Front-end:** \
+**Front-end:** 
 * Thymeleaf
 
-**Persistência de dados:** \
+**Persistência de dados:** 
 * MySQL
