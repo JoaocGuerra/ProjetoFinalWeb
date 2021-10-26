@@ -1,4 +1,4 @@
-# Projeto Final de Disciplina\
+# Projeto Final de Disciplina
 
 **Instituto Federal da Paraíba - Campus Campina Grande** \
 **Curso:** Engenharia de Computação \
