@@ -11,7 +11,7 @@ João Gabriel de Oliveira Ponciano \
 João Messias da Silva Medeiros
 
 **Descrição:** 
-Fazer uso de qualquer ferramenta JAVA EE para criação de um aplicação FullStack de um sistema de vizualização de séries.
+Fazer uso de qualquer ferramenta JAVA EE para criação de um aplicação FullStack de um sistema de visualização de séries.
 
 **Back-end:** 
 * Java
